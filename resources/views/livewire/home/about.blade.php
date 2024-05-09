@@ -36,14 +36,18 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="about-image-part wow fadeInUp delay-0-3s">
+                        @isset($about)
                         <img src="{{ asset("storage/$about->author_image") }}" alt="About Me">
+                        @endisset
                         <div class="about-btn btn-one wow fadeInRight delay-0-4s">
                             <img src="assets/images/about/btn-image1.png" alt="Image">
                             <h6>{{ $about->experience ?? "" }}</h6>
                             <i class="fas fa-arrow-right"></i>
                         </div>
                         <div class="about-btn btn-two wow fadeInRight delay-0-5s">
+                            @isset($about)
                             <img height="40" width="40" src="{{ asset("storage/$about->avater") }}" alt="Image">
+                            @endisset
                             <h6>{{ $about->author ?? ""}}</h6>
                             <i class="fas fa-arrow-right"></i>
                         </div>
