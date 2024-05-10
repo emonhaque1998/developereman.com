@@ -31,155 +31,27 @@
                     <div class="col-lg-8">
                         <div class="blog-standard-wrap">
                             <div class="row">
-                                <div class="col-md-6 item">
-                                    <div class="blog-item style-two wow fadeInUp delay-0-2s">
-                                        <div class="image">
-                                            <img src="assets/images/blog/blog-standard1.jpg" alt="Blog Standard">
-                                        </div>
-                                        <div class="content">
-                                            <div class="blog-meta mb-20">
-                                                <a class="tag" href="blog.html">Design</a>
-                                                <a class="tag" href="blog.html">Figma</a>
+                                @isset($blogs)
+                                    @foreach ($blogs as $blog)
+                                    <div class="col-md-6 item">
+                                        <div class="blog-item style-two wow fadeInUp delay-0-2s">
+                                            <div class="image">
+                                                <img width="380" height="270" style="object-fit: cover;" src="{{ asset("storage/$blog->banner") }}" alt="Blog Standard">
                                             </div>
-                                            <h5><a href="blog-details.html">Tips For Conducting to Usability Studies With Participants</a></h5>
-                                            <hr>
-                                            <div class="blog-meta mb-5">
-                                                <a class="date" href="#"><i class="far fa-calendar-alt"></i> September 25, 2023</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 item">
-                                    <div class="blog-item style-two wow fadeInUp delay-0-4s">
-                                        <div class="image">
-                                            <img src="assets/images/blog/blog-standard2.jpg" alt="Blog Standard">
-                                        </div>
-                                        <div class="content">
-                                            <div class="blog-meta mb-20">
-                                                <a class="tag" href="blog.html">Design</a>
-                                                <a class="tag" href="blog.html">Figma</a>
-                                            </div>
-                                            <h5><a href="blog-details.html">Online Environment Work For Older Users systems ways Tips Usability Studies Pants</a></h5>
-                                            <hr>
-                                            <div class="blog-meta mb-5">
-                                                <a class="date" href="#"><i class="far fa-calendar-alt"></i> September 25, 2023</a>
+                                            <div class="content">
+                                                <div class="blog-meta mb-20">
+                                                    <a class="tag" href="blog.html">{{ $blog->blogCategory->category_name }}</a>
+                                                </div>
+                                                <h5><a href="blog-details.html">{{ $blog->title }}</a></h5>
+                                                <hr>
+                                                <div class="blog-meta mb-5">
+                                                    <a class="date" href="#"><i class="far fa-calendar-alt"></i> {{ $blog->created_at->format("M d, Y") }}</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 item">
-                                    <div class="blog-item style-two wow fadeInUp delay-0-2s">
-                                        <div class="image">
-                                            <img src="assets/images/blog/blog-standard3.jpg" alt="Blog Standard">
-                                        </div>
-                                        <div class="content">
-                                            <div class="blog-meta mb-20">
-                                                <a class="tag" href="blog.html">Design</a>
-                                                <a class="tag" href="blog.html">Figma</a>
-                                            </div>
-                                            <h5><a href="blog-details.html">Tips For Conducting to Usability Studies With Participants</a></h5>
-                                            <hr>
-                                            <div class="blog-meta mb-5">
-                                                <a class="date" href="#"><i class="far fa-calendar-alt"></i> September 25, 2023</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 item">
-                                    <div class="blog-item style-two wow fadeInUp delay-0-4s">
-                                        <div class="image">
-                                            <img src="assets/images/blog/blog-standard4.jpg" alt="Blog Standard">
-                                        </div>
-                                        <div class="content">
-                                            <div class="blog-meta mb-20">
-                                                <a class="tag" href="blog.html">Design</a>
-                                                <a class="tag" href="blog.html">Figma</a>
-                                            </div>
-                                            <h5><a href="blog-details.html">Online Environment Work For Older Users systems ways Tips Usability Studies Pants</a></h5>
-                                            <hr>
-                                            <div class="blog-meta mb-5">
-                                                <a class="date" href="#"><i class="far fa-calendar-alt"></i> September 25, 2023</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 item">
-                                    <div class="blog-item style-two wow fadeInUp delay-0-2s">
-                                        <div class="image">
-                                            <img src="assets/images/blog/blog-standard5.jpg" alt="Blog Standard">
-                                        </div>
-                                        <div class="content">
-                                            <div class="blog-meta mb-20">
-                                                <a class="tag" href="blog.html">Design</a>
-                                                <a class="tag" href="blog.html">Figma</a>
-                                            </div>
-                                            <h5><a href="blog-details.html">Tips For Conducting to Usability Studies With Participants</a></h5>
-                                            <hr>
-                                            <div class="blog-meta mb-5">
-                                                <a class="date" href="#"><i class="far fa-calendar-alt"></i> September 25, 2023</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 item">
-                                    <div class="blog-item style-two wow fadeInUp delay-0-4s">
-                                        <div class="image">
-                                            <img src="assets/images/blog/blog-standard6.jpg" alt="Blog Standard">
-                                        </div>
-                                        <div class="content">
-                                            <div class="blog-meta mb-20">
-                                                <a class="tag" href="blog.html">Design</a>
-                                                <a class="tag" href="blog.html">Figma</a>
-                                            </div>
-                                            <h5><a href="blog-details.html">Online Environment Work For Older Users systems ways Tips Usability Studies Pants</a></h5>
-                                            <hr>
-                                            <div class="blog-meta mb-5">
-                                                <a class="date" href="#"><i class="far fa-calendar-alt"></i> September 25, 2023</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 item">
-                                    <div class="blog-item style-two wow fadeInUp delay-0-2s">
-                                        <div class="image">
-                                            <img src="assets/images/blog/blog-standard7.jpg" alt="Blog Standard">
-                                        </div>
-                                        <div class="content">
-                                            <div class="blog-meta mb-20">
-                                                <a class="tag" href="blog.html">Design</a>
-                                                <a class="tag" href="blog.html">Figma</a>
-                                            </div>
-                                            <h5><a href="blog-details.html">Tips For Conducting to Usability Studies With Participants</a></h5>
-                                            <hr>
-                                            <div class="blog-meta mb-5">
-                                                <a class="date" href="#"><i class="far fa-calendar-alt"></i> September 25, 2023</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 item">
-                                    <div class="blog-item style-two wow fadeInUp delay-0-4s">
-                                        <div class="image">
-                                            <img src="assets/images/blog/blog-standard8.jpg" alt="Blog Standard">
-                                        </div>
-                                        <div class="content">
-                                            <div class="blog-meta mb-20">
-                                                <a class="tag" href="blog.html">Design</a>
-                                                <a class="tag" href="blog.html">Figma</a>
-                                            </div>
-                                            <h5><a href="blog-details.html">Online Environment Work For Older Users systems ways Tips Usability Studies Pants</a></h5>
-                                            <hr>
-                                            <div class="blog-meta mb-5">
-                                                <a class="date" href="#"><i class="far fa-calendar-alt"></i> September 25, 2023</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 item offset-md-6">
-                                    <div class="news-more-btn text-center mt-35 wow fadeInUp delay-0-2s">
-                                        <a href="blog.html" class="theme-btn">View More Projects <i class="far fa-angle-right"></i></a>
-                                    </div>
-                                </div>
+                                    @endforeach
+                                @endisset
                             </div>
                         </div>
                     </div>
@@ -188,71 +60,15 @@
                             <div class="widget widget-search wow fadeInUp delay-0-2s">
                                 <h4 class="widget-title">Search</h4>
                                 <form action="#" class="default-search-form">
-                                    <input type="text" placeholder="Keywords" required>
+                                    <input type="text" wire:keydown="searchBlog" wire:model="searchValue" placeholder="Keywords" required>
                                     <button type="submit" class="searchbutton far fa-search"></button>
                                 </form>
                             </div>
-                            <div class="widget widget-category wow fadeInUp delay-0-4s">
-                                <h4 class="widget-title">Category</h4>
-                                <ul>
-                                    <li><i class="far fa-angle-right"></i> <a href="blog.html">Web Design</a></li>
-                                    <li><i class="far fa-angle-right"></i> <a href="blog.html">Mobile Apps Design</a></li>
-                                    <li><i class="far fa-angle-right"></i> <a href="blog.html">Brand Identity Design</a></li>
-                                    <li><i class="far fa-angle-right"></i> <a href="blog.html">Motion Graphic Design</a></li>
-                                    <li><i class="far fa-angle-right"></i> <a href="blog.html">Web Development</a></li>
-                                    <li><i class="far fa-angle-right"></i> <a href="blog.html">Digital Marketing</a></li>
-                                </ul>
-                            </div>
-                            <div class="widget widget-recent-news wow fadeInUp delay-0-2s">
-                                <h4 class="widget-title">Latest News</h4>
-                                <ul>
-                                    <li>
-                                        <div class="image">
-                                            <img src="assets/images/widgets/news1.jpg" alt="News">
-                                        </div>
-                                        <div class="content">
-                                            <div class="blog-meta mb-5">
-                                                <a class="date" href="#"><i class="far fa-calendar-alt"></i> Sep 25, 2023</a>
-                                            </div>
-                                            <h5><a href="blog-details.html">Tips For Conducting Studie</a></h5>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="image">
-                                            <img src="assets/images/widgets/news2.jpg" alt="News">
-                                        </div>
-                                        <div class="content">
-                                            <div class="blog-meta mb-5">
-                                                <a class="date" href="#"><i class="far fa-calendar-alt"></i> Sep 25, 2023</a>
-                                            </div>
-                                            <h5><a href="blog-details.html">Usability With Participants</a></h5>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="image">
-                                            <img src="assets/images/widgets/news3.jpg" alt="News">
-                                        </div>
-                                        <div class="content">
-                                            <div class="blog-meta mb-5">
-                                                <a class="date" href="#"><i class="far fa-calendar-alt"></i> Sep 25, 2023</a>
-                                            </div>
-                                            <h5><a href="blog-details.html">Online Environment Work</a></h5>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="widget widget-tag-cloud wow fadeInUp delay-0-2s">
-                                <h4 class="widget-title">Popular Tags</h4>
-                                <div class="tag-coulds">
-                                    <a href="blog.html">Design</a>
-                                    <a href="blog.html">Figma</a>
-                                    <a href="blog.html">Apps</a>
-                                    <a href="blog.html">Branding</a>
-                                    <a href="blog.html">Development</a>
-                                    <a href="blog.html">Digital</a>
-                                    <a href="blog.html">Mobile Apps</a>
-                                </div>
-                            </div>
+                            
+                            <livewire:blog.category />
+
+                            <livewire:blog.latest-news lazy />
+                           
                             <div class="widget widget-cta wow fadeInUp delay-0-2s">
                                 <div class="cta-widget" style="background-image: url(assets/images/widgets/widget-cta.jpg);">
                                     <span class="sub-title">Get A Quote</span>

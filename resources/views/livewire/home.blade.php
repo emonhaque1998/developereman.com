@@ -125,65 +125,7 @@
 
 
 <!-- Blog Area start -->
-<section class="blog-area rel z-1">
-    <div class="for-bgc-black pt-130 pb-100 rpt-100 rpb-70">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-12">
-                    <div class="section-title text-center mb-60 wow fadeInUp delay-0-2s">
-                        <span class="sub-title mb-15">News & Blog</span>
-                        <h2>Latest News & <span>Blog</span></h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="blog-item wow fadeInUp delay-0-2s">
-                        <div class="image">
-                            <img src="assets/images/blog/blog1.png" alt="Blog">
-                        </div>
-                        <div class="content">
-                            <div class="blog-meta mb-35">
-                                <a class="tag" href="blog.html">Design</a>
-                                <a class="tag" href="blog.html">Figma</a>
-                            </div>
-                            <h5><a href="blog-details.html">Tips For Conductin See Usability Studies</a></h5>
-                            <hr>
-                            <div class="blog-meta mt-35">
-                                <a class="date" href="#"><i class="far fa-calendar-alt"></i> September 25, 2023</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="blog-item wow fadeInUp delay-0-2s">
-                        <div class="image">
-                            <img src="assets/images/blog/blog2.png" alt="Blog">
-                        </div>
-                        <div class="content">
-                            <div class="blog-meta mb-35">
-                                <a class="tag" href="blog.html">Design</a>
-                                <a class="tag" href="blog.html">Figma</a>
-                            </div>
-                            <h5><a href="blog-details.html">Keyboard-Only Suppor Assistive Technology</a></h5>
-                            <hr>
-                            <div class="blog-meta mt-35">
-                                <a class="date" href="#"><i class="far fa-calendar-alt"></i> September 25, 2023</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="bg-lines">
-       <span></span><span></span>
-       <span></span><span></span>
-       <span></span><span></span>
-       <span></span><span></span>
-       <span></span><span></span>
-    </div>
-</section>
+<livewire:home.blog >
 <!-- Blog Area end -->
 
 <!-- Client Log start -->
