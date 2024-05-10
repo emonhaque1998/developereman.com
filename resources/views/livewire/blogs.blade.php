@@ -70,11 +70,13 @@
                             <livewire:blog.latest-news lazy />
 
                             <div class="widget widget-cta wow fadeInUp delay-0-2s">
+                                @isset($blogDetails->background_quete)
                                 <div class="cta-widget" style="background-image: url({{ asset("storage/$blogDetails->background_quete") }});">
                                     <span class="sub-title">Get A Quote</span>
                                     <h4>{{ $blogDetails->title }}</h4>
                                     <a href="contact.html" class="theme-btn">Hire Me <i class="far fa-angle-right"></i></a>
                                 </div>
+                                @endisset
                             </div>
                         </div>
                     </div>

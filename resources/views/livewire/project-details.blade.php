@@ -83,7 +83,7 @@
                 <div class="item">
                     <b>Category</b>
                     <div class="tag-coulds">
-                        <a href="blog.html">{{ $project->projectCategory->category_name }}</a>
+                        <a href="{{ url("/project/category/" . $project->projectCategory->slug) }}">{{ $project->projectCategory->category_name }}</a>
                     </div>
                 </div>
                 <div class="item">

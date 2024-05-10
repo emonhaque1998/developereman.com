@@ -2,11 +2,19 @@
 
 namespace App\Filament\Resources\ProjectCategoryResource\Pages;
 
-use App\Filament\Resources\ProjectCategoryResource;
 use Filament\Actions;
+use Illuminate\Support\Str;
 use Filament\Resources\Pages\CreateRecord;
+use App\Filament\Resources\ProjectCategoryResource;
 
 class CreateProjectCategory extends CreateRecord
 {
     protected static string $resource = ProjectCategoryResource::class;
+
+    protected function mutateFormDataBeforeCreate(array $data): array
+    {
+        $data['slug'] = Str::slug($data["category_name"]);
+
+        return $data;
+    }
 }

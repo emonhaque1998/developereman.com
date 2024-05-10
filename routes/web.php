@@ -11,10 +11,10 @@ use App\Livewire\ProjectDetails;
 use App\Livewire\Service;
 use Illuminate\Support\Facades\Route;
 
-Route::get("/", Home::class);
+Route::get("/", Home::class)->name("home");
 Route::get("/about", About::class);
 Route::get("/service", Service::class);
-Route::get("/project", Project::class);
+Route::get("/project", Project::class)->name("project");
 Route::get("/project-details/{slug}", ProjectDetails::class);
 Route::get("/project/category/{slug}", CategoryProject::class);
 Route::get("/blogs", Blogs::class);

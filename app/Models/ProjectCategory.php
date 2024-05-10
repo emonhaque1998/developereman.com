@@ -12,6 +12,7 @@ class ProjectCategory extends Model
 
     protected $fillable = [
         "category_name",
+        "slug"
     ];
 
     public function project(){
