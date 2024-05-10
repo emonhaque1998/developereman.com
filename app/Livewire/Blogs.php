@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Blog;
+use App\Models\BlogDetail;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
 
@@ -12,7 +13,7 @@ class Blogs extends Component
     public $blogs;
 
     public function searchBlog(){
-        $this->blogs = Blog::where("title", 'like', '%'.$this->searchValue.'%')->get();
+        $this->blogs = Blog::where("title", 'like', '%'.$this->searchValue.'%')->take(8)->get();
     }
 
 
@@ -24,6 +25,8 @@ class Blogs extends Component
     #[Layout('layouts.home')]
     public function render()
     {
-        return view('livewire.blogs');
+        return view('livewire.blogs')->with([
+            "blogDetails" => BlogDetail::latest()->first()
+        ]);
     }
 }

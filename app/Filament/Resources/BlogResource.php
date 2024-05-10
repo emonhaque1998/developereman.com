@@ -7,20 +7,27 @@ use App\Models\Blog;
 use Filament\Tables;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
+use App\Models\BlogCategory;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
+use App\Filament\Exports\BlogExporter;
+use App\Filament\Imports\BlogImporter;
+use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Actions\ImportAction;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Tables\Actions\ExportBulkAction;
 use App\Filament\Resources\BlogResource\Pages;
+use Filament\Actions\Exports\Enums\ExportFormat;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\BlogResource\RelationManagers;
-use App\Models\BlogCategory;
-use Filament\Forms\Components\FileUpload;
 
 class BlogResource extends Resource
 {
     protected static ?string $model = Blog::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?int $navigationSort = 3;
+    protected static ?string $navigationGroup = 'Blogs';
 
     public static function form(Form $form): Form
     {
@@ -98,9 +105,18 @@ class BlogResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
+            ->headerActions([
+                ImportAction::make()
+                    ->importer(BlogImporter::class)
+            ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
+                    ExportBulkAction::make()
+                    ->exporter(BlogExporter::class)
+                    ->formats([
+                        ExportFormat::Csv,
+                    ])
                 ]),
             ]);
     }

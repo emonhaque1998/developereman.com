@@ -2,30 +2,39 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\BlogCategoryResource\Pages;
-use App\Filament\Resources\BlogCategoryResource\RelationManagers;
-use App\Models\BlogCategory;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use App\Models\GolobalClient;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\GolobalClientResource\Pages;
+use App\Filament\Resources\GolobalClientResource\RelationManagers;
 
-class BlogCategoryResource extends Resource
+class GolobalClientResource extends Resource
 {
-    protected static ?string $model = BlogCategory::class;
+    protected static ?string $model = GolobalClient::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?int $navigationSort = 1;
-    protected static ?string $navigationGroup = 'Blogs';
+    protected static ?int $navigationSort = 2;
+    protected static ?string $navigationGroup = 'Global Client';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('category_name')
+                FileUpload::make('logo')
+                    ->imageCropAspectRatio('200:80')
+                    ->imageResizeTargetWidth('200')
+                    ->imageResizeTargetHeight('80')
+                    ->disk('public')
+                    ->directory('upload'),
+                Forms\Components\TextInput::make('website')
+                    ->url()
+                    ->suffixIcon('heroicon-m-globe-alt')
                     ->required()
                     ->maxLength(255),
             ]);
@@ -35,9 +44,9 @@ class BlogCategoryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('category_name')
+                Tables\Columns\TextColumn::make('logo')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('slug')
+                Tables\Columns\TextColumn::make('website')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -71,9 +80,9 @@ class BlogCategoryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBlogCategories::route('/'),
-            'create' => Pages\CreateBlogCategory::route('/create'),
-            'edit' => Pages\EditBlogCategory::route('/{record}/edit'),
+            'index' => Pages\ListGolobalClients::route('/'),
+            'create' => Pages\CreateGolobalClient::route('/create'),
+            'edit' => Pages\EditGolobalClient::route('/{record}/edit'),
         ];
     }
 }

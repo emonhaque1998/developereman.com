@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\BlogCategoryResource\Pages;
-use App\Filament\Resources\BlogCategoryResource\RelationManagers;
-use App\Models\BlogCategory;
+use App\Filament\Resources\GlobalClientTitleResource\Pages;
+use App\Filament\Resources\GlobalClientTitleResource\RelationManagers;
+use App\Models\GlobalClientTitle;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,19 +13,19 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class BlogCategoryResource extends Resource
+class GlobalClientTitleResource extends Resource
 {
-    protected static ?string $model = BlogCategory::class;
+    protected static ?string $model = GlobalClientTitle::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?int $navigationSort = 1;
-    protected static ?string $navigationGroup = 'Blogs';
+    protected static ?string $navigationGroup = 'Global Client';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('category_name')
+                Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
             ]);
@@ -35,9 +35,7 @@ class BlogCategoryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('category_name')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('slug')
+                Tables\Columns\TextColumn::make('title')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -71,9 +69,9 @@ class BlogCategoryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBlogCategories::route('/'),
-            'create' => Pages\CreateBlogCategory::route('/create'),
-            'edit' => Pages\EditBlogCategory::route('/{record}/edit'),
+            'index' => Pages\ListGlobalClientTitles::route('/'),
+            'create' => Pages\CreateGlobalClientTitle::route('/create'),
+            'edit' => Pages\EditGlobalClientTitle::route('/{record}/edit'),
         ];
     }
 }

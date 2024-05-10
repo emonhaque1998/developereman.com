@@ -3,6 +3,7 @@
 use App\Http\Controllers\FileController;
 use App\Livewire\About;
 use App\Livewire\Blogs;
+use App\Livewire\CategoryProject;
 use App\Livewire\Contact;
 use App\Livewire\Home;
 use App\Livewire\Project;
@@ -15,6 +16,7 @@ Route::get("/about", About::class);
 Route::get("/service", Service::class);
 Route::get("/project", Project::class);
 Route::get("/project-details/{slug}", ProjectDetails::class);
+Route::get("/project/category/{slug}", CategoryProject::class);
 Route::get("/blogs", Blogs::class);
 Route::get("/contact", Contact::class);
 

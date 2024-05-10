@@ -64,15 +64,15 @@
                                     <button type="submit" class="searchbutton far fa-search"></button>
                                 </form>
                             </div>
-                            
+
                             <livewire:blog.category />
 
                             <livewire:blog.latest-news lazy />
-                           
+
                             <div class="widget widget-cta wow fadeInUp delay-0-2s">
-                                <div class="cta-widget" style="background-image: url(assets/images/widgets/widget-cta.jpg);">
+                                <div class="cta-widget" style="background-image: url({{ asset("storage/$blogDetails->background_quete") }});">
                                     <span class="sub-title">Get A Quote</span>
-                                    <h4>Looking For Creative Web Designer</h4>
+                                    <h4>{{ $blogDetails->title }}</h4>
                                     <a href="contact.html" class="theme-btn">Hire Me <i class="far fa-angle-right"></i></a>
                                 </div>
                             </div>

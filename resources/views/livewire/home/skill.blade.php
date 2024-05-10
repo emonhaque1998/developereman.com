@@ -19,7 +19,7 @@
                                 @foreach ($skillItems as $skillItem)
                                     <div class="col-xl-3 col-lg-4 col-md-3 col-sm-4 col-6">
                                         <div class="skill-item wow fadeInUp delay-0-2s">
-                                            <img src="{{ asset("storage/$skillItem->logo") }}" alt="Skill">
+                                            <img width="55" height="55" src="{{ asset("storage/$skillItem->logo") }}" alt="Skill">
                                             <h5>{{ $skillItem->skill_name }}</h5>
                                             <span class="percent">{{ $skillItem->percentage }}%</span>
                                         </div>

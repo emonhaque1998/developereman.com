@@ -2,32 +2,40 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\BlogCategoryResource\Pages;
-use App\Filament\Resources\BlogCategoryResource\RelationManagers;
-use App\Models\BlogCategory;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
+use App\Models\BlogDetail;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\BlogDetailResource\Pages;
+use App\Filament\Resources\BlogDetailResource\RelationManagers;
 
-class BlogCategoryResource extends Resource
+class BlogDetailResource extends Resource
 {
-    protected static ?string $model = BlogCategory::class;
+    protected static ?string $model = BlogDetail::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 2;
     protected static ?string $navigationGroup = 'Blogs';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('category_name')
+                Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
+                FileUpload::make('background_quete')
+                    ->imageCropAspectRatio('300:300')
+                    ->imageResizeTargetWidth('300')
+                    ->imageResizeTargetHeight('300')
+                    ->disk('public')
+                    ->directory('upload')
+                    ->required(),
             ]);
     }
 
@@ -35,9 +43,9 @@ class BlogCategoryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('category_name')
+                Tables\Columns\TextColumn::make('title')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('slug')
+                Tables\Columns\TextColumn::make('background_quete')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -71,9 +79,9 @@ class BlogCategoryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBlogCategories::route('/'),
-            'create' => Pages\CreateBlogCategory::route('/create'),
-            'edit' => Pages\EditBlogCategory::route('/{record}/edit'),
+            'index' => Pages\ListBlogDetails::route('/'),
+            'create' => Pages\CreateBlogDetail::route('/create'),
+            'edit' => Pages\EditBlogDetail::route('/{record}/edit'),
         ];
     }
 }
