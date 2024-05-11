@@ -22,7 +22,6 @@ class Blogs extends Component
         $this->blogs = Blog::latest()->take(8)->get();
     }
 
-    #[Layout('layouts.home')]
     public function render()
     {
         return view('livewire.blogs')->with([

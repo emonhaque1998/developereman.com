@@ -38,17 +38,19 @@
                             <h6>Main Office</h6>
                             <div class="widget_contact_info mb-35">
                                 <ul>
-                                    <li><i class="far fa-map-marker-alt"></i> 55 Main Street, 2nd block,<br> New York City</li>
-                                    <li><i class="far fa-envelope"></i> <a href="mailto:support@gmail.com">support@gmail.com</a></li>
-                                    <li><i class="far fa-phone"></i> <a href="callto:+880(123)45688">+880 (123) 456 88</a></li>
+                                    <li><i class="far fa-map-marker-alt"></i>{{ $contact->address ?? "" }}</li>
+                                    <li><i class="far fa-envelope"></i><a href="mailto:support@gmail.com">{{ $contact->email ?? "" }}</a></li>
+                                    <li><i class="far fa-phone"></i><a href="callto:+880(123)45688">{{ $contact->number ?? "" }}</a></li>
                                 </ul>
                             </div>
                             <h5>Follow Me</h5>
                             <div class="social-style-one mt-10">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                @isset($contact)
+                                <a href="{{ $contact->facebook }}"><i class="fab fa-facebook-f"></i></a>
+                                <a href="{{ $contact->twiter }}"><i class="fab fa-twitter"></i></a>
+                                <a href="{{ $contact->linkdin }}"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="{{ $contact->instragram }}"><i class="fab fa-instagram"></i></a>
+                                @endisset
                             </div>
                         </div>
                     </div>
@@ -122,7 +124,7 @@
         <div class="contact-page-map pb-120 rpb-90 wow fadeInUp delay-0-2s">
             <div class="container">
                 <div class="our-location">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m12!1m10!1m3!1d142190.2862584524!2d-74.01298319978558!3d40.721725351435126!2m1!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sbd!4v1663473911885!5m2!1sen!2sbd" style="border:0; width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Manikganj%20Sadar,%20Manikganj+(Developer%20Eman)&amp;t=k&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps vehicle tracker</a></iframe></div>
                 </div>
             </div>
         </div>

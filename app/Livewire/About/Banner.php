@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\About;
 
 use App\Models\AboutPage;
 use Livewire\Component;
-use Livewire\Attributes\Layout;
 
-class About extends Component
+class Banner extends Component
 {
     public function render()
     {
-        return view('livewire.about')->with([
+        return view('livewire.about.banner')->with([
             "about" => AboutPage::latest()->first()
         ]);
     }

@@ -21,7 +21,6 @@ class CategoryProject extends Component
         $this->projects = $category->project;
     }
 
-    #[Layout('layouts.home')]
     public function render()
     {
         return view('livewire.category-project');

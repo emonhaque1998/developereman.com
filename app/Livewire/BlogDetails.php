@@ -15,7 +15,6 @@ class BlogDetails extends Component
         $this->blog = Blog::where("slug", $slug)->first();
     }
 
-    #[Layout('layouts.home')]
     public function render()
     {
         return view('livewire.blog-details');

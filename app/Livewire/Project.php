@@ -9,7 +9,6 @@ use Livewire\Attributes\Layout;
 
 class Project extends Component
 {
-    #[Layout('layouts.home')]
     public function render()
     {
         return view('livewire.project')->with([

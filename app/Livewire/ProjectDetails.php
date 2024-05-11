@@ -17,7 +17,6 @@ class ProjectDetails extends Component
     }
 
 
-    #[Layout('layouts.home')]
     public function render()
     {
         return view('livewire.project-details');

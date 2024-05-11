@@ -28,7 +28,6 @@ class CategoryBlogs extends Component
         $this->blogs = $category->blog;
     }
 
-    #[Layout('layouts.home')]
     public function render()
     {
         return view('livewire.category-blogs');

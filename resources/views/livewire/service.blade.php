@@ -30,12 +30,14 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-lg-6">
                         <div class="what-i-do-images rmb-55 wow fadeInUp delay-0-2s">
+                            @isset($service)
                             <div class="first-image">
-                                <img src="assets/images/about/what-i-do1.jpg" alt="What I do">
+                                <img src="{{ asset("storage/$service->first_image") }}" alt="What I do">
                             </div>
                             <div class="last-image">
-                                <img src="assets/images/about/what-i-do2.jpg" alt="What I do">
+                                <img src="{{ asset("storage/$service->second_image") }}" alt="What I do">
                             </div>
+                            @endisset
                             <div class="icon first"><i class="flaticon-asterisk-1"></i></div>
                             <div class="icon last"><i class="flaticon-asterisk-1"></i></div>
                         </div>
@@ -44,13 +46,15 @@
                         <div class="what-i-do-content wow fadeInUp delay-0-4s">
                             <div class="section-title mb-40">
                                 <span class="sub-title mb-15">What I Do</span>
-                                <h2>Real <span>Problem Solutions</span> Experience</h2>
-                                <p>At vero eos et accusamus etodio dignissimos ducimus praesen tium voluptat corrupti quos dolores quas molestias </p>
+                                <h2>{!! $service->title ?? "Real <span>Problem Solutions</span> Experience" !!}</h2>
+                                <p>{{ $service->description ?? "" }} </p>
                             </div>
                             <ul class="list-style-two pb-50">
-                                <li>5+ Years Of Experience</li>
-                                <li>Professional Web Designer</li>
-                                <li>Mobile Apps Design</li>
+                                @isset($service->include)
+                                    @foreach ($service->include as $include)
+                                        <li>{{ $include }}</li>
+                                    @endforeach
+                                @endisset
                             </ul>
                             <a href="about.html" class="theme-btn">Learn More <i class="far fa-angle-right"></i></a>
                         </div>
