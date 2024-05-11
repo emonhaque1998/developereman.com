@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\FileController;
 use App\Livewire\About;
+use App\Livewire\BlogDetails;
 use App\Livewire\Blogs;
+use App\Livewire\CategoryBlogs;
 use App\Livewire\CategoryProject;
 use App\Livewire\Contact;
 use App\Livewire\Home;
@@ -12,12 +14,14 @@ use App\Livewire\Service;
 use Illuminate\Support\Facades\Route;
 
 Route::get("/", Home::class)->name("home");
-Route::get("/about", About::class);
-Route::get("/service", Service::class);
+Route::get("/about", About::class)->name("about");
+Route::get("/service", Service::class)->name("service");
 Route::get("/project", Project::class)->name("project");
 Route::get("/project-details/{slug}", ProjectDetails::class);
 Route::get("/project/category/{slug}", CategoryProject::class);
-Route::get("/blogs", Blogs::class);
-Route::get("/contact", Contact::class);
+Route::get("/blogs", Blogs::class)->name("blogs");
+Route::get("/blogs/category/{slug}", CategoryBlogs::class);
+Route::get("/blog/{slug}", BlogDetails::class);
+Route::get("/contact", Contact::class)->name("contact");
 
 Route::get('/download/upload/{file}', [FileController::class, "download"]);

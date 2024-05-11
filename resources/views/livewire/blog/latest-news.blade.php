@@ -11,7 +11,7 @@
                         <div class="blog-meta mb-5">
                             <a class="date" href="#"><i class="far fa-calendar-alt"></i> {{ $blog->created_at->format("M d, Y") }}</a>
                         </div>
-                        <h5><a href="blog-details.html">{{ $blog->title }}</a></h5>
+                        <h5><a href="{{ url("/blog/$blog->slug") }}">{{ $blog->title }}</a></h5>
                     </div>
                 </li>
             @endforeach

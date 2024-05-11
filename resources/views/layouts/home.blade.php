@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="{{ asset("assets/css/slick.min.css") }}">
     <!-- Main Style -->
     <link rel="stylesheet" href="{{ asset("assets/css/style.css") }}">
-
+    @vite("resources/css/app.css")
 </head>
 <body class="home-one">
     <div class="page-wrapper">
@@ -89,7 +89,7 @@
                         <div class="col-lg-2 col-md-12">
                             <div class="footer-widget widget_logo wow fadeInUp delay-0-2s">
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="assets/images/logos/logo.png" alt="Logo"></a>
+                                    <a href="index.html"><img src="{{ asset("assets/images/my-logo/logo.png") }}" alt="Logo"></a>
                                 </div>
                             </div>
                         </div>
@@ -179,10 +179,7 @@
     <!-- Custom script -->
     <script src="{{ asset("assets/js/script.js") }}"></script>
 
-    <!-- For Contact Form -->
-    <script src="{{ asset("assets/js/jquery.ajaxchimp.min.js") }}"></script>
-    <script src="{{ asset("assets/js/form-validator.min.js") }}"></script>
-    <script src="{{ asset("assets/js/contact-form-script.js") }}"></script>
+   
 
 </body>
 </html>

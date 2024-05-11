@@ -3,7 +3,7 @@
     <ul>
         @isset($categories)
             @foreach ($categories as $category)
-                <li><i class="far fa-angle-right"></i> <a href="blog.html">{{ $category->category_name }}</a></li>        
+                <li><i class="far fa-angle-right"></i> <a href="{{ url("/blogs/category/$category->slug") }}" wire:navigate>{{ $category->category_name }}</a></li>        
             @endforeach
         @endisset
     </ul>

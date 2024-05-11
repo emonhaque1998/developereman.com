@@ -4,11 +4,11 @@
         <section class="page-banner-area pt-200 rpt-140 pb-100 rpb-60 rel z-1 text-center">
             <div class="container">
                 <div class="banner-inner text-white">
-                    <h1 class="page-title wow fadeInUp delay-0-2s"> Blog Standard</h1>
+                    <h1 class="page-title wow fadeInUp delay-0-2s"> Blogs</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center wow fadeInUp delay-0-4s">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active"> Blog Standard</li>
+                            <li class="breadcrumb-item"><a href="{{ route("home") }}" wire:navigate>Home</a></li>
+                            <li class="breadcrumb-item active"> Blogs</li>
                         </ol>
                     </nav>
                 </div>
@@ -40,9 +40,9 @@
                                             </div>
                                             <div class="content">
                                                 <div class="blog-meta mb-20">
-                                                    <a class="tag" href="blog.html">{{ $blog->blogCategory->category_name }}</a>
+                                                    <a class="tag" href="{{ url("/blogs/category/" . $blog->blogCategory->slug) }}" wire:navigate>{{ $blog->blogCategory->category_name }}</a>
                                                 </div>
-                                                <h5><a href="blog-details.html">{{ $blog->title }}</a></h5>
+                                                <h5><a href="{{ url("/blog/$blog->slug") }}" wire:navigate>{{ $blog->title }}</a></h5>
                                                 <hr>
                                                 <div class="blog-meta mb-5">
                                                     <a class="date" href="#"><i class="far fa-calendar-alt"></i> {{ $blog->created_at->format("M d, Y") }}</a>
