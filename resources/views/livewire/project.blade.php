@@ -6,7 +6,7 @@
                 <h1 class="page-title wow fadeInUp delay-0-2s">Projects</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-center wow fadeInUp delay-0-4s">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route("home") }}" wire:navigate>Home</a></li>
                         <li class="breadcrumb-item active">Projects</li>
                     </ol>
                 </nav>
@@ -21,8 +21,8 @@
         </div>
     </section>
     <!-- Page Banner End -->
-    
-    
+
+
     <!-- Projects Area start -->
     <section class="projects-area pt-40 pb-130 rpb-100 rel z-1">
         <div class="container">
@@ -30,7 +30,7 @@
                 <li data-filter="*" class="current">Show All</li>
                 @isset($categories)
                     @foreach ($categories as $category)
-                        <li data-filter=".{{ $category->category_name }}">{{ $category->category_name }}</li>        
+                        <li data-filter=".{{ $category->category_name }}">{{ $category->category_name }}</li>
                     @endforeach
                 @endisset
             </ul>
@@ -48,13 +48,19 @@
                                     <h3><a href="{{ url("project-details/$project->slug") }}" wire:navigate>{{ $project->title }}</a></h3>
                                 </div>
                             </div>
-                        </div>        
+                        </div>
                     @endforeach
                 @endisset
-                
+
             </div>
             <div class="project-btn text-center wow fadeInUp delay-0-2s">
-                <a href="projects.html" class="theme-btn">View More Projects <i class="far fa-angle-right"></i></a>
+                <a href="" class="theme-btn" wire:click.prevent="loadMore">View More Projects <i class="far fa-angle-right"></i></a>
+                <div wire:loading wire:target="loadMore" class="spinner-border spinner-border-sm" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                  <div wire:loading wire:target="loadMore" class="spinner-grow spinner-grow-sm" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
             </div>
         </div>
         <div class="bg-lines">

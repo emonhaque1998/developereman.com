@@ -2,8 +2,9 @@
 
 namespace App\Filament\Resources\HeroResource\Pages;
 
-use App\Filament\Resources\HeroResource;
 use Filament\Actions;
+use Illuminate\Support\Facades\Cache;
+use App\Filament\Resources\HeroResource;
 use Filament\Resources\Pages\EditRecord;
 
 class EditHero extends EditRecord
@@ -15,5 +16,10 @@ class EditHero extends EditRecord
         return [
             Actions\DeleteAction::make(),
         ];
+    }
+
+    protected function afterSave(): void
+    {
+        Cache::forget('dev_hero');
     }
 }

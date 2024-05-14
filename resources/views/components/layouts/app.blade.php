@@ -3,7 +3,7 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="description" content="">
+    <meta name="description" content="Hi, There. I'm Eman H.! Programmer, Trainer & Public Speaker. Over the last 7 years, I have been developing web and mobile apps for my clients world wide.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -19,7 +19,6 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ asset("assets/css/bootstrap.min.css") }}">
     <!-- Magnific Popup -->
-    <link rel="stylesheet" href="{{ asset("assets/css/magnific-popup.min.css") }}">
     <!-- Nice Select -->
     <link rel="stylesheet" href="{{ asset("assets/css/nice-select.min.css") }}">
     <!-- Animate -->
@@ -28,7 +27,9 @@
     <link rel="stylesheet" href="{{ asset("assets/css/slick.min.css") }}">
     <!-- Main Style -->
     <link rel="stylesheet" href="{{ asset("assets/css/style.css") }}">
-    @vite("resources/css/app.css")
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="YOUR_NONCE_VALUE"></script>
+    @livewireStyles
+    @vite(['resources/js/app.js', "resources/css/app.css"])
 </head>
 <body class="home-one">
     <div class="page-wrapper">

@@ -15,7 +15,7 @@
                         <div class="navbar-header">
                            <div class="mobile-logo my-15">
                                <a href="index.html">
-                                    <img src="assets/images/logos/logo.png" alt="Logo" title="Logo">
+                                    <img width="160" src="{{ asset("assets/images/my-logo/logo.png") }}" alt="Logo" title="Logo">
                                </a>
                            </div>
 
@@ -45,14 +45,22 @@
                     <!-- Main Menu End-->
                 </div>
 
-                <!-- Menu Button -->
                 <div class="menu-btns">
                     <!-- menu sidbar -->
-                    <div class="menu-sidebar">
-                        <button>
-                            <img src="assets/images/shape/sidebar-tottler.svg" alt="Toggler">
-                        </button>
-                    </div>
+                    <style>
+                        #element {
+                            display: block;
+                        }
+
+                        /* Media query for screens smaller than 768px (typical for mobile devices) */
+                        @media only screen and (max-width: 768px) {
+                            /* Hide the element with display: none */
+                            #contact {
+                                display: none;
+                            }
+                        }
+                    </style>
+                    <a id="contact" href="{{ route("contact") }}" wire:navigate class="theme-btn">let,s talk</a>
                 </div>
             </div>
         </div>

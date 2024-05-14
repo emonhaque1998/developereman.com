@@ -5,7 +5,6 @@ namespace App\Livewire;
 use App\Models\Blog;
 use App\Models\BlogDetail;
 use Livewire\Component;
-use Livewire\Attributes\Layout;
 
 class Blogs extends Component
 {

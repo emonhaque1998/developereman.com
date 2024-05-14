@@ -48,7 +48,7 @@
 
 
         <div class="project-btn text-center wow fadeInUp delay-0-2s">
-            <a href="projects.html" class="theme-btn">View More Projects <i class="far fa-angle-right"></i></a>
+            <a href="{{ route("project") }}" wire:navigate class="theme-btn">View More Projects <i class="far fa-angle-right"></i></a>
         </div>
     </div>
     <div class="bg-lines">

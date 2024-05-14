@@ -42,7 +42,7 @@
         <div class="col-md-12">
             <div class="form-group mb-0">
                 <button type="submit" class="theme-btn">Send Us Message <i class="far fa-angle-right"></i></button>
-                <div wire:loading wire:target="sendMessage" class="spinner-border spinner-border-sm" role="status">
+                    <div wire:loading wire:target="sendMessage" class="spinner-border spinner-border-sm" role="status">
                     <span class="visually-hidden">Loading...</span>
                   </div>
                   <div wire:loading wire:target="sendMessage" class="spinner-grow spinner-grow-sm" role="status">

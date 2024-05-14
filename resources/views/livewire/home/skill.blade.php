@@ -9,7 +9,7 @@
                             <h2>{!! $skill->title ?? "" !!}</h2>
                             <p>{{ $skill->description ?? "" }}</p>
                         </div>
-                        <a href="about.html" class="theme-btn">{{ $skill->button_name ?? "" }} <i class="far fa-angle-right"></i></a>
+                        <a href="{{ route("about") }}" wire:navigate class="theme-btn">{{ $skill->button_name ?? "" }} <i class="far fa-angle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-7">

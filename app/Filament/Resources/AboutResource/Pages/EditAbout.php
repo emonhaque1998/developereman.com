@@ -2,9 +2,10 @@
 
 namespace App\Filament\Resources\AboutResource\Pages;
 
-use App\Filament\Resources\AboutResource;
 use Filament\Actions;
+use Illuminate\Support\Facades\Cache;
 use Filament\Resources\Pages\EditRecord;
+use App\Filament\Resources\AboutResource;
 
 class EditAbout extends EditRecord
 {
@@ -15,5 +16,10 @@ class EditAbout extends EditRecord
         return [
             Actions\DeleteAction::make(),
         ];
+    }
+
+    protected function afterSave(): void
+    {
+        Cache::forget('dev_about');
     }
 }

@@ -6,7 +6,7 @@
                 <h3 class="page-title wow fadeInUp delay-0-2s"> {{ $blog->title }}</h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-center wow fadeInUp delay-0-4s">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route("home") }}" wire:navigate>Home</a></li>
                         <li class="breadcrumb-item active"> {{ $blog->title }}</li>
                     </ol>
                 </nav>
@@ -21,8 +21,8 @@
         </div>
     </section>
     <!-- Page Banner End -->
-    
-    
+
+
     <!-- Blog Details Area start -->
     <section class="blog-details-area pb-70 rpb-40 pb-130 rpb-100 rel z-1">
         <div class="container">
@@ -31,12 +31,14 @@
                     <div class="blog-details-wrap">
                         <div class="content mt-35">
                             <div class="blog-meta mb-30 wow fadeInUp delay-0-2s">
-                                <a class="tag" href="blog.html">{{ $blog->blogCategory->category_name }}</a>
+                                <a class="tag" href="{{ url("/blogs/category/" . $blog->blogCategory->slug) }}">{{ $blog->blogCategory->category_name }}</a>
                             </div>
                             <div class="author-date-share mb-40 wow fadeInUp delay-0-4s">
-                                <div class="author">
-                                    <img src="assets/images/blog/author.jpg" alt="Author">
-                                </div>
+                                @isset($blog->user->avater)
+                                    <div class="author">
+                                        <img width="60" height="60" src="{{ asset("storage/" . $blog->user->avater ) }}" alt="Author">
+                                    </div>
+                                @endisset
                                 <div class="text">
                                     <span>Post By</span>
                                     <h5>{{ $blog->user->name }}</h5>
@@ -64,7 +66,7 @@
                                     <div class="image mb-20 wow fadeInUp delay-0-2s">
                                         <img src="{{ asset("storage/$image") }}" alt="Blog Middle">
                                     </div>
-                                </div>    
+                                </div>
                             @endforeach
                         </div>
                         <div class="content mt-30 wow fadeInUp delay-0-2s">
@@ -74,13 +76,15 @@
                                 <div class="item">
                                     <b>Category</b>
                                     <div class="tag-coulds">
-                                        <a href="blog.html">{{ $blog->blogCategory->category_name }}</a>
+                                        <a href="{{ url("/blogs/category/" . $blog->blogCategory->slug ) }}">{{ $blog->blogCategory->category_name }}</a>
                                     </div>
                                 </div>
                                 <div class="item">
                                     <b>Share</b>
                                     <div class="social-style-one">
-                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u="
+                                        target="_blank"
+                                        rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
                                         <a href="#"><i class="fab fa-twitter"></i></a>
                                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -90,12 +94,14 @@
                         </div>
                         <div class="admin-comment mt-50 wow fadeInUp delay-0-2s">
                             <div class="comment-body">
-                                <div class="author-thumb">
-                                    <img src="assets/images/blog/admin-author.jpg" alt="Author">
-                                </div>
+                                @isset($blog->user->avater)
+                                    <div class="author-thumb">
+                                        <img src="{{ asset("storage/" . $blog->user->avater) }}" alt="Author">
+                                    </div>
+                                @endisset
                                 <div class="content">
                                     <h5>{{ $blog->user->name }}</h5>
-                                    <p>We denounce with righteous indignation and dislike men beguiled and demoralized by the charms of pleasure of the moment</p>
+                                    <p>{{ $blog->user->bio }}</p>
                                     <div class="social-style-two mt-5">
                                         <a href="contact.html"><i class="fab fa-facebook-f"></i></a>
                                         <a href="contact.html"><i class="fab fa-twitter"></i></a>
@@ -105,54 +111,31 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="content">
-                            <div class="next-prev-post pt-50 pb-20 wow fadeInUp delay-0-2s">
-                                <div class="post-item">
-                                    <div class="image">
-                                        <img src="assets/images/blog/post-prev.jpg" alt="Post">
-                                    </div>
-                                    <div class="post-content">
-                                        <span class="date">
-                                            <i class="far fa-calendar-alt"></i>
-                                            <a href="#">Sep 25, 2023</a>
-                                        </span>
-                                        <h6><a href="blog-details.html">Tips For Conducting Studie</a></h6>
-                                    </div>
-                                </div>
-                                <div class="post-item">
-                                    <div class="image">
-                                        <img src="assets/images/blog/post-next.jpg" alt="Post">
-                                    </div>
-                                    <div class="post-content">
-                                        <span class="date">
-                                            <i class="far fa-calendar-alt"></i>
-                                            <a href="#">Sep 25, 2023</a>
-                                        </span>
-                                        <h6><a href="blog-details.html">Usability With Participants</a></h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <livewire:blog.last-two-blogs >
                         <div class="content mt-65">
                             <h3 class="comment-title">Comments</h3>
-                            <div class="comment-body wow fadeInUp delay-0-2s">
-                                <div class="author-thumb">
-                                    <img src="assets/images/blog/comment-author1.jpg" alt="Author">
-                                </div>
-                                <div class="content">
-                                    <ul class="blog-meta">
-                                        <li>
-                                            <h6>William L. Jackson</h6>
-                                        </li>
-                                        <li>
-                                            <a href="#">May 25, 2023</a>
-                                        </li>
-                                    </ul>
-                                    <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse molestiae consequatur qui dolorem eum fugiat voluptas</p>
-                                    <a class="read-more" href="#">Reply <i class="far fa-angle-right"></i></a>
-                                </div>
-                            </div>
-                            <div class="comment-body comment-child wow fadeInUp delay-0-2s">
+                            @isset($blog->comment)
+                                @foreach ($blog->comment as $comment)
+                                    <div class="comment-body wow fadeInUp delay-0-2s">
+                                        <div class="author-thumb">
+                                            <img width="50" src="{{ asset("assets/images/favicon.png") }}" alt="Author">
+                                        </div>
+                                        <div class="content">
+                                            <ul class="blog-meta">
+                                                <li>
+                                                    <h6>{{ $comment->name }}</h6>
+                                                </li>
+                                                <li>
+                                                    <a href="#">{{ $comment->created_at->format("M d, Y") }}</a>
+                                                </li>
+                                            </ul>
+                                            <p>{{ $comment->text }}</p>
+                                            {{-- <a class="read-more" href="#">Reply <i class="far fa-angle-right"></i></a> --}}
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endisset
+                            {{-- <div class="comment-body comment-child wow fadeInUp delay-0-2s">
                                 <div class="author-thumb">
                                     <img src="assets/images/blog/comment-author2.jpg" alt="Author">
                                 </div>
@@ -168,28 +151,28 @@
                                     <p>At vero eoset accusamus dignissimos ducimus blanditiis sapiente praesentium voluptatum deleniti atque</p>
                                     <a class="read-more" href="#">Reply <i class="far fa-angle-right"></i></a>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="content">
-                            <form id="comment-form" class="comment-form form-style-one pt-65 pb-55 mt-55 wow fadeInUp delay-0-2s" name="comment-form" action="#" method="post">
+                            <form id="comment-form" class="comment-form form-style-one pt-65 pb-55 mt-55 wow fadeInUp delay-0-2s" name="comment-form" wire:submit="save">
                                 <h5>Leave a Reply</h5>
                                 <div class="row mt-30">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="text" id="full-name" name="full-name" class="form-control" value="" placeholder="Full Name" required="">
+                                            <input type="text" id="full-name" wire:model.live="name" class="form-control" value="" placeholder="Full Name" required="">
                                             <label for="full-name" class="for-icon"><i class="far fa-user"></i></label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="email" id="email-address" name="email-address" class="form-control" value="" placeholder="Email Address" required="">
+                                            <input type="email" id="email-address" wire:model.live="email" class="form-control" value="" placeholder="Email Address" required="">
                                             <label for="email-address" class="for-icon"><i class="far fa-envelope"></i></label>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="message">Message</label>
-                                            <textarea name="message" id="message" class="form-control" rows="4" placeholder="write message" required=""></textarea>
+                                            <textarea wire:model.live="text" id="message" class="form-control" rows="4" placeholder="write message" required=""></textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-12">

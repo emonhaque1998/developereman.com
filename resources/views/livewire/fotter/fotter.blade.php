@@ -34,7 +34,7 @@
                         <ul>
                             <li><i class="far fa-map-marker-alt"></i> {{ $contact->address ?? "" }}</li>
                             <li><i class="far fa-envelope"></i> <a href="mailto:support@gmail.com">{{ $contact->email ?? "" }}</a></li>
-                            <li><i class="far fa-phone"></i> <a href="callto:+880(123)45688">{{ $contact->number }}</a></li>
+                            <li><i class="far fa-phone"></i> <a href="callto:+880(123)45688">{{ $contact->number ?? "" }}</a></li>
                         </ul>
                     </div>
                 </div>
