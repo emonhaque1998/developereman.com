@@ -2,9 +2,10 @@
 
 namespace App\Filament\Resources\GlobalClientTitleResource\Pages;
 
-use App\Filament\Resources\GlobalClientTitleResource;
 use Filament\Actions;
+use Illuminate\Support\Facades\Cache;
 use Filament\Resources\Pages\EditRecord;
+use App\Filament\Resources\GlobalClientTitleResource;
 
 class EditGlobalClientTitle extends EditRecord
 {
@@ -15,5 +16,10 @@ class EditGlobalClientTitle extends EditRecord
         return [
             Actions\DeleteAction::make(),
         ];
+    }
+
+    protected function afterSave(): void
+    {
+        Cache::forget('dev_global_title');
     }
 }

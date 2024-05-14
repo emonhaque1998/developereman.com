@@ -2,9 +2,10 @@
 
 namespace App\Filament\Resources\ServiceResource\Pages;
 
-use App\Filament\Resources\ServiceResource;
 use Filament\Actions;
+use Illuminate\Support\Facades\Cache;
 use Filament\Resources\Pages\EditRecord;
+use App\Filament\Resources\ServiceResource;
 
 class EditService extends EditRecord
 {
@@ -15,5 +16,10 @@ class EditService extends EditRecord
         return [
             Actions\DeleteAction::make(),
         ];
+    }
+
+    protected function afterSave(): void
+    {
+        Cache::forget('dev_services');
     }
 }

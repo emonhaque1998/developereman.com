@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Blog;
 use App\Models\Comment;
 use Livewire\Component;
+use Livewire\Attributes\Title;
 
 class BlogDetails extends Component
 {
@@ -29,6 +30,7 @@ class BlogDetails extends Component
         $this->blog = Blog::where("slug", $slug)->first();
     }
 
+    #[Title("Blog Details | Developer Eman")]
     public function render()
     {
         return view('livewire.blog-details');

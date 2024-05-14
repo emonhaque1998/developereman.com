@@ -2,9 +2,9 @@
 
 namespace App\Livewire;
 
-use App\Models\ProjectCategory;
 use Livewire\Component;
-use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
+use App\Models\ProjectCategory;
 
 class CategoryProject extends Component
 {
@@ -21,6 +21,7 @@ class CategoryProject extends Component
         $this->projects = $category->project;
     }
 
+    #[Title("Category Wise Projects | Developer Eman")]
     public function render()
     {
         return view('livewire.category-project');

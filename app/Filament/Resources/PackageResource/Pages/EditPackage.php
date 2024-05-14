@@ -2,9 +2,10 @@
 
 namespace App\Filament\Resources\PackageResource\Pages;
 
-use App\Filament\Resources\PackageResource;
 use Filament\Actions;
+use Illuminate\Support\Facades\Cache;
 use Filament\Resources\Pages\EditRecord;
+use App\Filament\Resources\PackageResource;
 
 class EditPackage extends EditRecord
 {
@@ -15,5 +16,10 @@ class EditPackage extends EditRecord
         return [
             Actions\DeleteAction::make(),
         ];
+    }
+
+    protected function afterSave(): void
+    {
+        Cache::forget('dev_packages');
     }
 }

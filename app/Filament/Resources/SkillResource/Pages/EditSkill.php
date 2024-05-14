@@ -2,9 +2,10 @@
 
 namespace App\Filament\Resources\SkillResource\Pages;
 
-use App\Filament\Resources\SkillResource;
 use Filament\Actions;
+use Illuminate\Support\Facades\Cache;
 use Filament\Resources\Pages\EditRecord;
+use App\Filament\Resources\SkillResource;
 
 class EditSkill extends EditRecord
 {
@@ -15,5 +16,10 @@ class EditSkill extends EditRecord
         return [
             Actions\DeleteAction::make(),
         ];
+    }
+
+    protected function afterSave(): void
+    {
+        Cache::forget('dev_skill');
     }
 }

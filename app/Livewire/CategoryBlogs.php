@@ -2,9 +2,9 @@
 
 namespace App\Livewire;
 
-use App\Models\BlogCategory;
 use Livewire\Component;
-use Livewire\Attributes\Layout;
+use App\Models\BlogCategory;
+use Livewire\Attributes\Title;
 
 class CategoryBlogs extends Component
 {
@@ -28,6 +28,7 @@ class CategoryBlogs extends Component
         $this->blogs = $category->blog;
     }
 
+    #[Title("Category Wise Blogs | Developer Eman")]
     public function render()
     {
         return view('livewire.category-blogs');

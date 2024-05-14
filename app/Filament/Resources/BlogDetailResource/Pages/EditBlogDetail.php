@@ -2,9 +2,10 @@
 
 namespace App\Filament\Resources\BlogDetailResource\Pages;
 
-use App\Filament\Resources\BlogDetailResource;
 use Filament\Actions;
+use Illuminate\Support\Facades\Cache;
 use Filament\Resources\Pages\EditRecord;
+use App\Filament\Resources\BlogDetailResource;
 
 class EditBlogDetail extends EditRecord
 {
@@ -15,5 +16,10 @@ class EditBlogDetail extends EditRecord
         return [
             Actions\DeleteAction::make(),
         ];
+    }
+
+    protected function afterSave(): void
+    {
+        Cache::forget('dev_blogDetails');
     }
 }

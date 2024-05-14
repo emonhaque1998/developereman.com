@@ -2,8 +2,9 @@
 
 namespace App\Filament\Resources\FaqResource\Pages;
 
-use App\Filament\Resources\FaqResource;
 use Filament\Actions;
+use Illuminate\Support\Facades\Cache;
+use App\Filament\Resources\FaqResource;
 use Filament\Resources\Pages\EditRecord;
 
 class EditFaq extends EditRecord
@@ -15,5 +16,10 @@ class EditFaq extends EditRecord
         return [
             Actions\DeleteAction::make(),
         ];
+    }
+
+    protected function afterSave(): void
+    {
+        Cache::forget('dev_faqs');
     }
 }

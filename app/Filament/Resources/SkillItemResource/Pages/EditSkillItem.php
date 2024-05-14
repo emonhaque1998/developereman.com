@@ -2,9 +2,10 @@
 
 namespace App\Filament\Resources\SkillItemResource\Pages;
 
-use App\Filament\Resources\SkillItemResource;
 use Filament\Actions;
+use Illuminate\Support\Facades\Cache;
 use Filament\Resources\Pages\EditRecord;
+use App\Filament\Resources\SkillItemResource;
 
 class EditSkillItem extends EditRecord
 {
@@ -15,5 +16,10 @@ class EditSkillItem extends EditRecord
         return [
             Actions\DeleteAction::make(),
         ];
+    }
+
+    protected function afterSave(): void
+    {
+        Cache::forget('dev_skillItems');
     }
 }

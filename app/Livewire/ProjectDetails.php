@@ -4,7 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Project;
 use Livewire\Component;
-use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 
 class ProjectDetails extends Component
 {
@@ -16,7 +16,7 @@ class ProjectDetails extends Component
         $this->project = Project::where('slug', $slug)->first();
     }
 
-
+    #[Title("Project Details | Developer Eman")]
     public function render()
     {
         return view('livewire.project-details');

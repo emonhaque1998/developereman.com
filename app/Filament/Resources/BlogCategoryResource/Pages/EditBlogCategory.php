@@ -2,9 +2,10 @@
 
 namespace App\Filament\Resources\BlogCategoryResource\Pages;
 
-use App\Filament\Resources\BlogCategoryResource;
 use Filament\Actions;
+use Illuminate\Support\Facades\Cache;
 use Filament\Resources\Pages\EditRecord;
+use App\Filament\Resources\BlogCategoryResource;
 
 class EditBlogCategory extends EditRecord
 {
@@ -15,5 +16,10 @@ class EditBlogCategory extends EditRecord
         return [
             Actions\DeleteAction::make(),
         ];
+    }
+
+    protected function afterSave(): void
+    {
+        Cache::forget('dev_categories');
     }
 }

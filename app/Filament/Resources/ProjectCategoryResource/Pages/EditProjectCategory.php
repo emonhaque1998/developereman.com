@@ -2,9 +2,10 @@
 
 namespace App\Filament\Resources\ProjectCategoryResource\Pages;
 
-use App\Filament\Resources\ProjectCategoryResource;
 use Filament\Actions;
+use Illuminate\Support\Facades\Cache;
 use Filament\Resources\Pages\EditRecord;
+use App\Filament\Resources\ProjectCategoryResource;
 
 class EditProjectCategory extends EditRecord
 {
@@ -15,5 +16,10 @@ class EditProjectCategory extends EditRecord
         return [
             Actions\DeleteAction::make(),
         ];
+    }
+
+    protected function afterSave(): void
+    {
+        Cache::forget('dev_categories_project');
     }
 }
