@@ -11,7 +11,10 @@ use App\Livewire\Home;
 use App\Livewire\Project;
 use App\Livewire\ProjectDetails;
 use App\Livewire\Service;
+use App\Models\Blog;
 use Illuminate\Support\Facades\Route;
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\Tags\Url;
 
 Route::get("/", Home::class)->name("home");
 Route::get("/about", About::class)->name("about");
@@ -25,3 +28,22 @@ Route::get("/blog/{slug}", BlogDetails::class);
 Route::get("/contact", Contact::class)->name("contact");
 
 Route::get('/download/upload/{file}', [FileController::class, "download"]);
+
+
+Route::get("/sitemap", function(){
+    $sitemap = Sitemap::create()
+        ->add(Url::create("/"))
+        ->add(Url::create("/about"))
+        ->add(Url::create("/service"))
+        ->add(Url::create("/project"))
+        ->add(Url::create("/blogs"))
+        ->add(Url::create("/contact"));
+
+    Blog::all()->each(function(Blog $blog) use ($sitemap){
+        $sitemap->add(Url::create("/blog/{$blog->slug}"));
+    });
+
+    $sitemap->writeToFile(public_path("sitemap.xml"));
+
+    return "Sitemap Genarate Successfull";
+});

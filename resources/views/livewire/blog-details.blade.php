@@ -82,10 +82,11 @@
                                 <div class="item">
                                     <b>Share</b>
                                     <div class="social-style-one">
-                                        <a href="https://www.facebook.com/sharer/sharer.php?u="
+                                        <a href="{{ $facebookShare }}"
                                         target="_blank"
                                         rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="{{ $twiterShare }}" target="_blank"
+                                        rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
                                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                                         <a href="#"><i class="fab fa-instagram"></i></a>
                                     </div>
@@ -102,12 +103,14 @@
                                 <div class="content">
                                     <h5>{{ $blog->user->name }}</h5>
                                     <p>{{ $blog->user->bio }}</p>
-                                    <div class="social-style-two mt-5">
-                                        <a href="contact.html"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="contact.html"><i class="fab fa-twitter"></i></a>
-                                        <a href="contact.html"><i class="fab fa-linkedin-in"></i></a>
-                                        <a href="contact.html"><i class="fab fa-instagram"></i></a>
-                                    </div>
+                                    @isset($contact)
+                                        <div class="social-style-two mt-5">
+                                            <a href="{{ $contact->facebook }}"><i class="fab fa-facebook-f"></i></a>
+                                            <a href="{{ $contact->twiter }}"><i class="fab fa-twitter"></i></a>
+                                            <a href="{{ $contact->linkdin }}"><i class="fab fa-linkedin-in"></i></a>
+                                            <a href="{{ $contact->instragram }}"><i class="fab fa-instagram"></i></a>
+                                        </div>
+                                    @endisset
                                 </div>
                             </div>
                         </div>
