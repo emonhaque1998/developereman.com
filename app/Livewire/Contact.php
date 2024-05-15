@@ -17,7 +17,7 @@ class Contact extends Component
         });
     }
 
-    #[Title("Contact | Developer Eman")]
+    #[Title("Contact - 24/7/365 Available")]
     public function render()
     {
         return view('livewire.contact');

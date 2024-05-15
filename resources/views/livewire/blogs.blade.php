@@ -45,7 +45,7 @@
                                                 <h5><a href="{{ url("/blog/$blog->slug") }}" wire:navigate>{{ $blog->title }}</a></h5>
                                                 <hr>
                                                 <div class="blog-meta mb-5">
-                                                    <a class="date" href="#"><i class="far fa-calendar-alt"></i> {{ $blog->created_at->format("M d, Y") }}</a>
+                                                    <a class="date" href="#" wire:click.prevent><i class="far fa-calendar-alt"></i> {{ $blog->created_at->format("M d, Y") }}</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -68,7 +68,7 @@
                         <div class="main-sidebar rmt-65">
                             <div class="widget widget-search wow fadeInUp delay-0-2s">
                                 <h4 class="widget-title">Search</h4>
-                                <form action="#" class="default-search-form">
+                                <form class="default-search-form">
                                     <input type="text" wire:keyup="searchBlog" wire:model="searchValue" placeholder="Keywords" required>
                                     <button type="submit" class="searchbutton far fa-search"></button>
                                 </form>
@@ -83,7 +83,7 @@
                                 <div class="cta-widget" style="background-image: url({{ asset("storage/$blogDetails->background_quete") }});">
                                     <span class="sub-title">Get A Quote</span>
                                     <h4>{{ $blogDetails->title }}</h4>
-                                    <a href="contact.html" class="theme-btn">Hire Me <i class="far fa-angle-right"></i></a>
+                                    <a href="{{ route("contact") }}" class="theme-btn">Hire Me <i class="far fa-angle-right"></i></a>
                                 </div>
                                 @endisset
                             </div>

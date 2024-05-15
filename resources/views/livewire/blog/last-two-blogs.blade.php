@@ -9,7 +9,7 @@
                     <div class="post-content">
                         <span class="date">
                             <i class="far fa-calendar-alt"></i>
-                            <a href="#">{{ $blog->created_at->format("M d, Y") }}</a>
+                            <a href="#" wire:click.prevent>{{ $blog->created_at->format("M d, Y") }}</a>
                         </span>
                         <h6><a href="{{ url("/blog/$blog->slug") }}">{{ $blog->title }}</a></h6>
                     </div>

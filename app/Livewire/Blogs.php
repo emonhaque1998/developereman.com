@@ -33,7 +33,7 @@ class Blogs extends Component
         $this->limit += 4;
     }
 
-    #[Title("Blogs | Developer Eman")]
+    #[Title("Blogs")]
     public function render()
     {
         return view('livewire.blogs');

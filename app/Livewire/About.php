@@ -17,7 +17,7 @@ class About extends Component
         });
     }
 
-    #[Title('About | Developer Eman')]
+    #[Title('About - Best Programmer')]
     public function render()
     {
         return view('livewire.about');

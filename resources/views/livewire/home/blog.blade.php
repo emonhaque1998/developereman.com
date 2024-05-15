@@ -19,12 +19,12 @@
                                 </div>
                                 <div class="content">
                                     <div class="blog-meta mb-35">
-                                        <a class="tag" href="blog.html">{{ $blog->blogCategory->category_name }}</a>
+                                        <a class="tag" href="{{ url("/blogs/category/" . $blog->blogCategory->slug) }}" wire:navigate>{{ $blog->blogCategory->category_name }}</a>
                                     </div>
-                                    <h5><a href="blog-details.html">{{ $blog->title }}</a></h5>
+                                    <h5><a href="{{ url("/blog/$blog->slug") }}" wire:navigate>{{ $blog->title }}</a></h5>
                                     <hr>
                                     <div class="blog-meta mt-35">
-                                        <a class="date" href="#"><i class="far fa-calendar-alt"></i> {{ $blog->created_at->format("M d, Y") }}</a>
+                                        <a class="date" href="#" wire:click.prevent><i class="far fa-calendar-alt"></i> {{ $blog->created_at->format("M d, Y") }}</a>
                                     </div>
                                 </div>
                             </div>

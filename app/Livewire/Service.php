@@ -17,7 +17,7 @@ class Service extends Component
         });
     }
 
-    #[Title("Services | Developer Eman")]
+    #[Title("Services - Laravel & WordPress")]
     public function render()
     {
         return view('livewire.service');

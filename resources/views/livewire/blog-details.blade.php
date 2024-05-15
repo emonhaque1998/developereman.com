@@ -47,7 +47,7 @@
                                     <span>Published</span>
                                     <h5>{{ $blog->created_at->format("M d, Y") }}</h5>
                                 </div>
-                                <a href="#" class="details-btn"><i class="far fa-share-alt"></i></a>
+                                <a href="#" wire:click.prevent class="details-btn"><i class="far fa-share-alt"></i></a>
                             </div>
                         </div>
                         <div class="image mb-35 wow fadeInUp delay-0-5s">
@@ -129,7 +129,7 @@
                                                     <h6>{{ $comment->name }}</h6>
                                                 </li>
                                                 <li>
-                                                    <a href="#">{{ $comment->created_at->format("M d, Y") }}</a>
+                                                    <a href="#" wire:click.prevent>{{ $comment->created_at->format("M d, Y") }}</a>
                                                 </li>
                                             </ul>
                                             <p>{{ $comment->text }}</p>
@@ -192,7 +192,7 @@
                     <div class="main-sidebar rmt-65">
                         <div class="widget widget-search wow fadeInUp delay-0-2s">
                             <h4 class="widget-title">Search</h4>
-                            <form action="#" class="default-search-form">
+                            <form action="#" wire:click.prevent class="default-search-form">
                                 <input type="text" placeholder="Keywords" required>
                                 <button type="submit" class="searchbutton far fa-search"></button>
                             </form>
@@ -205,7 +205,7 @@
                             <div class="cta-widget" style="background-image: url({{ asset("storage/$blogDetails->background_quete") }});">
                                 <span class="sub-title">Get A Quote</span>
                                 <h4>{{ $blogDetails->title }}</h4>
-                                <a href="contact.html" class="theme-btn">Hire Me <i class="far fa-angle-right"></i></a>
+                                <a href="{{ route("contact") }}" class="theme-btn">Hire Me <i class="far fa-angle-right"></i></a>
                             </div>
                             @endisset
                         </div>

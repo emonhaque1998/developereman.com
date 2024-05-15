@@ -28,7 +28,7 @@ class CategoryBlogs extends Component
         $this->blogs = $category->blog;
     }
 
-    #[Title("Category Wise Blogs | Developer Eman")]
+    #[Title("Category Wise Blogs")]
     public function render()
     {
         return view('livewire.category-blogs');

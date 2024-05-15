@@ -16,7 +16,7 @@ class ProjectDetails extends Component
         $this->project = Project::where('slug', $slug)->first();
     }
 
-    #[Title("Project Details | Developer Eman")]
+    #[Title("Project Details")]
     public function render()
     {
         return view('livewire.project-details');

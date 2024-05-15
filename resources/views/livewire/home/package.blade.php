@@ -27,7 +27,7 @@
                                     @endforeach
                                 @endisset
                             </ul>
-                            <a href="contact.html" class="theme-btn">Choose Package <i class="far fa-angle-right"></i></a>
+                            <a href="{{ route("contact") }}" class="theme-btn">Choose Package <i class="far fa-angle-right"></i></a>
                         </div>
                     </div>
                 </div>

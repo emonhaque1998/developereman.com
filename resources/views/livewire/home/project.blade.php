@@ -22,7 +22,7 @@
                             <span class="sub-title">{{ $project->projectCategory->category_name }}</span>
                             <h2><a href="{{ url("project-details/$project->slug") }}" wire:navigate>{{ $project->title }}</a></h2>
                             <p>{{ substr($project->description, 0, 100) }}...</p>
-                            <a href="project-details.html" class="details-btn"><i class="far fa-arrow-right"></i></a>
+                            <a href="{{ url("project-details/$project->slug") }}" class="details-btn"><i class="far fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                             <span class="sub-title">{{ $project->projectCategory->category_name }}</span>
                             <h2><a href="{{ url("project-details/$project->slug") }}" wire:navigate>{{ $project->title }}</a></h2>
                             <p>{{ substr($project->description, 0, 100) }}...</p>
-                            <a href="project-details.html" class="details-btn"><i class="far fa-arrow-right"></i></a>
+                            <a href="{{ url("project-details/$project->slug") }}" class="details-btn"><i class="far fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>

@@ -25,7 +25,7 @@ class Project extends Component
         $this->limit += 4;
     }
 
-    #[Title("Projects | Developer Eman")]
+    #[Title("Projects - Client Real Work")]
     public function render()
     {
         return view('livewire.project')->with([

@@ -21,7 +21,7 @@ class CategoryProject extends Component
         $this->projects = $category->project;
     }
 
-    #[Title("Category Wise Projects | Developer Eman")]
+    #[Title("Category Wise Projects")]
     public function render()
     {
         return view('livewire.category-project');

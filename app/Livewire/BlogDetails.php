@@ -42,7 +42,7 @@ class BlogDetails extends Component
         $this->twiterShare = "https://twitter.com/intent/tweet?url=" . request()->url();
     }
 
-    #[Title("Blog Details | Developer Eman")]
+    #[Title("Blog Details")]
     public function render()
     {
         return view('livewire.blog-details');

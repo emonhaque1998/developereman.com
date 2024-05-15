@@ -18,7 +18,7 @@
                                 <h4>{{ $service->title }}</h4>
                                 <p>{{ $service->sub_title }}</p>
                             </div>
-                            <a href="service-details.html" class="details-btn"><i class="fas fa-arrow-right"></i></a>
+                            <a href="#" wire:click.prevent class="details-btn"><i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 @endforeach

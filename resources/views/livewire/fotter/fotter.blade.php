@@ -15,8 +15,8 @@
                         <ul>
                             <li><a href="{{ route("service") }}" wire:navigate>Service</a></li>
                             <li><a href="{{ route("project") }}" wire:navigate>Projects</a></li>
-                            <li><a href="services.html#pricing">Pricing</a></li>
-                            <li><a href="about.html#faqs">Faqs</a></li>
+                            <li><a href="{{ route("service") }}">Pricing</a></li>
+                            <li><a href="{{ route("about") }}">Faqs</a></li>
                             <li><a href="{{ route("contact") }}" wire:navigate>Contact</a></li>
                         </ul>
                     </div>

@@ -31,7 +31,7 @@
                             <ul class="navigation clearfix">
                                 <li><a href="{{ url('/') }}" class="{{ request()->routeIs("home") ? "active" : null }}" wire:navigate>Home</a>
                                 </li>
-                                <li><a href="/about" class="{{ request()->routeIs("about") ? "active" : null }}" wire:navigate>about</a></li>
+                                <li><a href="{{ route("about") }}" class="{{ request()->routeIs("about") ? "active" : null }}" wire:navigate>about</a></li>
                                 <li><a href="{{ url("/service") }}" class="{{ request()->routeIs("service") ? "active" : null }}" wire:navigate>services</a></li>
                                 <li><a href="{{ url("/project") }}" class="{{ request()->routeIs("project") ? "active" : null }}" wire:navigate>projects</a>
                                 </li>
