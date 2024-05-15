@@ -26,7 +26,7 @@ class Blogs extends Component
     }
 
     public function searchBlog(){
-        $this->blogs = Blog::where("title", 'like', '%'.$this->searchValue.'%')->take(8)->get();
+        $this->blogs = Blog::where("title", 'like', '%'.$this->searchValue.'%')->take($this->limit)->get();
     }
 
     public function loadMore(){

@@ -69,7 +69,7 @@
                             <div class="widget widget-search wow fadeInUp delay-0-2s">
                                 <h4 class="widget-title">Search</h4>
                                 <form action="#" class="default-search-form">
-                                    <input type="text" wire:keydown="searchBlog" wire:model="searchValue" placeholder="Keywords" required>
+                                    <input type="text" wire:keyup="searchBlog" wire:model="searchValue" placeholder="Keywords" required>
                                     <button type="submit" class="searchbutton far fa-search"></button>
                                 </form>
                             </div>
