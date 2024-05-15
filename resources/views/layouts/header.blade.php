@@ -14,7 +14,7 @@
                     <nav class="main-menu navbar-expand-lg">
                         <div class="navbar-header">
                            <div class="mobile-logo my-15">
-                               <a href="index.html">
+                               <a href="{{ route("home") }}">
                                     <img width="160" src="{{ asset("assets/images/my-logo/logo.png") }}" alt="Logo" title="Logo">
                                </a>
                            </div>

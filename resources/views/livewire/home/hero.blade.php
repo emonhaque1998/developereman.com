@@ -7,7 +7,7 @@
                     <h1>{!! $hero->title ?? "Not Found" !!}</h1>
                     <p>{{ $hero->description ?? "Not Found" }}</p>
                     <div class="hero-btns">
-                        <a href="contact.html" class="theme-btn">Hire Me <i class="far fa-angle-right"></i></a>
+                        <a href="{{ route("contact") }}" wire:navigate class="theme-btn">Hire Me <i class="far fa-angle-right"></i></a>
                         @isset($hero)
                             <a href="{{ url("/download/$hero->download_cv_attachment") }}" class="read-more">Download Resume <i class="far fa-angle-right"></i></a>
                         @endisset

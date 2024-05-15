@@ -54,6 +54,15 @@
                                 @endisset
                             </div>
                         </div>
+                        <div class="project-btn text-center wow fadeInUp delay-0-2s">
+                            <a href="" class="theme-btn" wire:click.prevent="loadMore">View More Projects <i class="far fa-angle-right"></i></a>
+                            <div wire:loading wire:target="loadMore" class="spinner-border spinner-border-sm" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                              </div>
+                              <div wire:loading wire:target="loadMore" class="spinner-grow spinner-grow-sm" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                              </div>
+                        </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="main-sidebar rmt-65">

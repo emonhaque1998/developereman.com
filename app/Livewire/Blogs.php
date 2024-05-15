@@ -15,9 +15,10 @@ class Blogs extends Component
     public $blogs;
 
     public $blogDetails;
+    public $limit = 8;
 
     public function mount(){
-        $this->blogs = Blog::latest()->take(8)->get();
+        $this->blogs = Blog::latest()->take($this->limit)->get();
 
         $this->blogDetails = Cache::remember('dev_blogDetails', Carbon::now()->addDays(30), function () {
             return BlogDetail::latest()->first();
@@ -28,11 +29,13 @@ class Blogs extends Component
         $this->blogs = Blog::where("title", 'like', '%'.$this->searchValue.'%')->take(8)->get();
     }
 
+    public function loadMore(){
+        $this->limit += 4;
+    }
+
     #[Title("Blogs | Developer Eman")]
     public function render()
     {
-        return view('livewire.blogs')->with([
-            "blogDetails" => BlogDetail::latest()->first()
-        ]);
+        return view('livewire.blogs');
     }
 }
