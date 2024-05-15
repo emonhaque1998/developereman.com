@@ -27,9 +27,12 @@
     <link rel="stylesheet" href="{{ asset("assets/css/slick.min.css") }}">
     <!-- Main Style -->
     <link rel="stylesheet" href="{{ asset("assets/css/style.css") }}">
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="YOUR_NONCE_VALUE"></script>
-    @livewireStyles
-    @vite(['resources/js/app.js', "resources/css/app.css"])
+    <style>
+        .active {
+            color: #c9f31d !important;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body class="home-one">
     <div class="page-wrapper">
