@@ -32,11 +32,19 @@ class ProjectResource extends Resource
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('meta_title')
+                    ->label("Meta Title Seo")
+                    ->maxLength(255),
+                TagsInput::make('meta_keyword')
+                    ->label("Meta Keyword Seo"),
                 Forms\Components\TextInput::make('sub_title')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('description')
                     ->required()
+                    ->columnSpanFull(),
+                Forms\Components\Textarea::make('meta_description')
+                    ->label("Meta Description Seo")
                     ->columnSpanFull(),
                 TagsInput::make('include')
                     ->required(),
@@ -77,6 +85,13 @@ class ProjectResource extends Resource
                     ->disk('public')
                     ->directory('upload')
                     ->required(),
+                Forms\Components\FileUpload::make('meta_image')
+                    ->label("Meta Image Seo")
+                    ->imageCropAspectRatio('300:300')
+                    ->imageResizeTargetWidth('300')
+                    ->imageResizeTargetHeight('300')
+                    ->disk('public')
+                    ->directory('upload'),
             ]);
     }
 

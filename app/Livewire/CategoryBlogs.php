@@ -2,9 +2,14 @@
 
 namespace App\Livewire;
 
+use Carbon\Carbon;
 use Livewire\Component;
 use App\Models\BlogCategory;
+use App\Models\CategoryBlogSeo;
 use Livewire\Attributes\Title;
+use Illuminate\Support\Facades\Cache;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
 
 class CategoryBlogs extends Component
 {
@@ -14,6 +19,7 @@ class CategoryBlogs extends Component
     public $searchValue;
 
     public function mount($slug){
+        $this->seoMount();
         $this->slug = $slug;
         $category = BlogCategory::with(['blog' => function ($query) {
             $query->take(8);
@@ -28,7 +34,23 @@ class CategoryBlogs extends Component
         $this->blogs = $category->blog;
     }
 
-    #[Title("Category Wise Blogs")]
+    public function seoMount(){
+        $seoInfo = Cache::remember('dev_category_blog_seo', Carbon::now()->addDays(30), function () {
+            return CategoryBlogSeo::latest()->first();
+        });
+        if(isset($seoInfo)){
+            SEOMeta::setTitle($seoInfo->title);
+            SEOMeta::setDescription($seoInfo->description);
+            SEOMeta::addKeyword($seoInfo->keyword);
+
+            OpenGraph::setTitle($seoInfo->title);
+            OpenGraph::setUrl(request()->url());
+            OpenGraph::setDescription($seoInfo->description);
+            OpenGraph::addImage(asset("storage/$seoInfo->image"), ['height' => 300, 'width' => 300]);
+
+        }
+    }
+
     public function render()
     {
         return view('livewire.category-blogs');

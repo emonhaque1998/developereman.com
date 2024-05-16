@@ -22,6 +22,10 @@ return new class extends Migration
             $table->string("slug")->unique();
             $table->string("last_title");
             $table->text("last_description");
+            $table->string("meta_title")->nullable();
+            $table->text("meta_description")->nullable();
+            $table->json("meta_keyword")->nullable();
+            $table->string("meta_image")->nullable();
             $table->unsignedBigInteger("blog_category_id")->index();
             $table->timestamps();
         });

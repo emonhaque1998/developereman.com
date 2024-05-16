@@ -22,11 +22,16 @@ class Blog extends Model
         "last_title",
         "last_description",
         "blog_category_id",
-        "title"
+        "title",
+        "meta_title",
+        "meta_description",
+        "meta_keyword",
+        "meta_image"
     ];
 
     protected $casts = [
         'images' => 'array',
+        'meta_keyword' => 'array',
     ];
 
     public function blogCategory(){

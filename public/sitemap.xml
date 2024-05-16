@@ -35,4 +35,9 @@
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
+    <url>
+        <loc>http://127.0.0.1:8000/blogs/category/wordpress</loc>
+            <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
 </urlset>

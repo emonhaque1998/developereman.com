@@ -12,6 +12,9 @@ use App\Livewire\Project;
 use App\Livewire\ProjectDetails;
 use App\Livewire\Service;
 use App\Models\Blog;
+use App\Models\BlogCategory;
+use App\Models\Project as ModelsProject;
+use App\Models\ProjectCategory;
 use Illuminate\Support\Facades\Route;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
@@ -41,6 +44,18 @@ Route::get("/sitemap", function(){
 
     Blog::all()->each(function(Blog $blog) use ($sitemap){
         $sitemap->add(Url::create("/blog/{$blog->slug}"));
+    });
+
+    BlogCategory::all()->each(function(BlogCategory $categoryBlog) use ($sitemap){
+        $sitemap->add(Url::create("/blogs/category/{$categoryBlog->slug}"));
+    });
+
+    ModelsProject::all()->each(function(ModelsProject $project) use ($sitemap){
+        $sitemap->add(Url::create("/project-details/{$project->slug}"));
+    });
+
+    ProjectCategory::all()->each(function(ProjectCategory $categoryProject) use ($sitemap){
+        $sitemap->add(Url::create("/project/category/{$categoryProject->slug}"));
     });
 
     $sitemap->writeToFile(public_path("sitemap.xml"));

@@ -4,10 +4,12 @@ namespace App\Livewire;
 
 use Carbon\Carbon;
 use App\Models\Blog;
+use App\Models\BlogSeo;
 use Livewire\Component;
 use App\Models\BlogDetail;
-use Livewire\Attributes\Title;
 use Illuminate\Support\Facades\Cache;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
 
 class Blogs extends Component
 {
@@ -23,6 +25,8 @@ class Blogs extends Component
         $this->blogDetails = Cache::remember('dev_blogDetails', Carbon::now()->addDays(30), function () {
             return BlogDetail::latest()->first();
         });
+
+        $this->seoMount();
     }
 
     public function searchBlog(){
@@ -33,7 +37,23 @@ class Blogs extends Component
         $this->limit += 4;
     }
 
-    #[Title("Blogs")]
+    public function seoMount(){
+        $seoInfo = Cache::remember('dev_blog_seo', Carbon::now()->addDays(30), function () {
+            return BlogSeo::latest()->first();
+        });
+        if(isset($seoInfo)){
+            SEOMeta::setTitle($seoInfo->title);
+            SEOMeta::setDescription($seoInfo->description);
+            SEOMeta::addKeyword($seoInfo->keyword);
+
+            OpenGraph::setTitle($seoInfo->title);
+            OpenGraph::setUrl(request()->url());
+            OpenGraph::setDescription($seoInfo->description);
+            OpenGraph::addImage(asset("storage/$seoInfo->image"), ['height' => 300, 'width' => 300]);
+
+        }
+    }
+
     public function render()
     {
         return view('livewire.blogs');

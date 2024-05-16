@@ -24,12 +24,17 @@ class Project extends Model
         "publish_date",
         "project_category_id",
         "small_banner",
-        "slug"
+        "slug",
+        "meta_title",
+        "meta_description",
+        "meta_keyword",
+        "meta_image"
     ];
 
     protected $casts = [
         'images' => 'array',
-        "include" => "array"
+        "include" => "array",
+        "meta_keyword" => "array"
     ];
 
     protected static function boot()

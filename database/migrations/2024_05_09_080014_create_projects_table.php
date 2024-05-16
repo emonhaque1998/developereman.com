@@ -25,6 +25,10 @@ return new class extends Migration
             $table->dateTime("publish_date");
             $table->string("small_banner");
             $table->string("slug")->unique();
+            $table->string("meta_title")->nullable();
+            $table->text("meta_description")->nullable();
+            $table->json("meta_keyword")->nullable();
+            $table->string("meta_image")->nullable();
             $table->unsignedBigInteger("project_category_id");
             $table->timestamps();
         });

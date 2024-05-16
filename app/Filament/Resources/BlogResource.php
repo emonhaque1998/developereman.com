@@ -12,6 +12,7 @@ use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
 use App\Filament\Exports\BlogExporter;
 use App\Filament\Imports\BlogImporter;
+use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Actions\ImportAction;
 use Illuminate\Database\Eloquent\Builder;
@@ -36,12 +37,20 @@ class BlogResource extends Resource
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('meta_title')
+                    ->label("Meta Title Seo")
+                    ->maxLength(255),
+                TagsInput::make('meta_keyword')
+                    ->label("Meta Keyword Seo"),
                 Select::make('blog_category_id')
                     ->options(function (): array {
                         return BlogCategory::all()->pluck('category_name', 'id')->all();
                     }),
                 Forms\Components\Textarea::make('description')
                     ->required()
+                    ->columnSpanFull(),
+                Forms\Components\Textarea::make('meta_description')
+                    ->label("Meta Description Seo")
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('qutation_title')
                     ->required()
@@ -67,6 +76,13 @@ class BlogResource extends Resource
                     ->disk('public')
                     ->directory('upload')
                     ->required(),
+                Forms\Components\FileUpload::make('meta_image')
+                    ->label("Meta Image Seo")
+                    ->imageCropAspectRatio('300:300')
+                    ->imageResizeTargetWidth('300')
+                    ->imageResizeTargetHeight('300')
+                    ->disk('public')
+                    ->directory('upload'),
             ]);
     }
 

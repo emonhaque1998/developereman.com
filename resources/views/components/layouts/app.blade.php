@@ -3,12 +3,12 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="description" content="Hi, There. I'm Eman H.! Programmer, Trainer & Public Speaker. Over the last 7 years, I have been developing web and mobile apps for my clients world wide.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>{{ $title ?? 'Page Title' }}</title>
+     {!! SEOMeta::generate(true) !!}
+    {!! OpenGraph::generate(true) !!}
     <!-- Favicon Icon -->
     <link rel="shortcut icon" href="{{ asset("assets/images/favicon.png") }}" type="image/x-icon">
 
