@@ -46,7 +46,7 @@
            <div class="row">
                <div class="col-lg-6">
                     <div class="copyright-text">
-                        <p>Copyright @2024, Design By <a href="index.html">Eman H.</a></p>
+                        <p>Copyright @2024, Design By <a href="https://join.skype.com/invite/pUIUl1nKv0EN">Eman H.</a></p>
                     </div>
                </div>
                <div class="col-lg-6 text-lg-end">

@@ -19,6 +19,8 @@ class ProjectSeoResource extends Resource
     protected static ?string $model = ProjectSeo::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?int $navigationSort = 7;
+    protected static ?string $navigationGroup = 'SEO Section';
 
     public static function form(Form $form): Form
     {

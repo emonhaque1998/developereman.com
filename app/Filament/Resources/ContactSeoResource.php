@@ -20,6 +20,9 @@ class ContactSeoResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?int $navigationSort = 6;
+    protected static ?string $navigationGroup = 'SEO Section';
+
     public static function form(Form $form): Form
     {
         return $form
